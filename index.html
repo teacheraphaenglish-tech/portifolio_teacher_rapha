@@ -30,9 +30,16 @@
         .faq-answer.open { display: block; }
     </style>
 </head>
+    <script>
+    function toggleFaq(button) {
+        const answer = button.nextElementSibling;
+        const icon = button.querySelector('span:last-child');
+        answer.classList.toggle('hidden');
+        icon.innerText = answer.classList.contains('hidden') ? '↓' : '↑';
+    }
+</script>
 <body class="bg-white text-gray-800 antialiased scroll-smooth">
-
-    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <img src="./logo.jpg" alt="Logo Teacher Rapha" class="w-10 h-10 rounded-full object-cover border border-gray-100 block">
@@ -267,43 +274,36 @@
 </section> <!-- Fecha section planos -->
 </section>
     </section>
-
-    <section class="py-16 md:py-20 bg-white">
-        <div class="max-w-3xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary mb-4">Perguntas Frequentes</h2>
-                <p class="text-gray-600">Esclareça as principais dúvidas sobre o andamento das aulas</p>
+   <section id="faq" class="py-16 md:py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-primary mb-4">Perguntas Frequentes</h2>
+            <p class="text-gray-600">Tudo o que você precisa saber para começar!</p>
+        </div>
+        
+        <div class="space-y-4">
+            <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-orange-200 transition-all">
+                <button onclick="toggleFaq(this)" class="w-full px-6 py-5 flex justify-between items-center bg-white hover:bg-slate-50 text-left transition-colors font-bold text-primary">
+                    <span>Posso começar do zero?</span>
+                    <span class="text-secondary font-bold text-xl ml-4">↓</span>
+                </button>
+                <div class="faq-answer px-6 pb-5 bg-white text-gray-600 text-sm border-t border-slate-100 pt-0 hidden">
+                    <p class="pt-4">Com certeza! Minha metodologia é adaptada para quem está dando os primeiros passos, com um ambiente acolhedor e sem pressões.</p>
+                </div>
             </div>
-            <div class="space-y-4">
-                <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-blue-50/50 text-left transition-colors font-semibold text-primary">
-                        <span>Posso começar do zero? Nunca estudei inglês antes.</span>
-                        <span class="text-secondary font-bold text-xl">↓</span>
-                    </button>
-                    <div class="faq-answer px-6 pb-4 bg-blue-50/10 text-gray-600 text-sm border-t border-gray-100 pt-3">
-                        Com certeza! Minha metodologia é perfeitamente adaptada para quem está dando os primeiros passos. O ambiente é acolhedor e seguro, permitindo que você comece a produzir frases simples e interagir logo no início, sem pressões.
-                    </div>
-                </div>
-                <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-blue-50/50 text-left transition-colors font-semibold text-primary">
-                        <span>Como funcionam as aulas? Elas são online?</span>
-                        <span class="text-secondary font-bold text-xl">↓</span>
-                    </button>
-                    <div class="faq-answer px-6 pb-4 bg-blue-50/10 text-gray-600 text-sm border-t border-gray-100 pt-3">
-                        Sim! As aulas são totalmente online e ao vivo, realizadas por plataformas de videoconferência. Isso garante flexibilidade geográfica total para que você estude de onde for mais prático para a sua rotina, com foco completo na prática oral.
-                    </div>
-                </div>
-                <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                    <button onclick="toggleFaq(this)" class="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-blue-50/50 text-left transition-colors font-semibold text-primary">
-                        <span>Tenho muita vergonha e medo de travar ao falar. Conseguirei aprender?</span>
-                        <span class="text-secondary font-bold text-xl">↓</span>
-                    </button>
-                    <div class="faq-answer px-6 pb-4 bg-blue-50/10 text-gray-600 text-sm border-t border-gray-100 pt-3">
-                        Esse é exatamente o foco do meu trabalho. Por já ter sido uma estudante extremamente tímida no passado, compreendo perfeitamente esse sentimento. Nossas aulas são estruturadas livre de julgamentos, onde o erro é visto como parte natural e bem-vinda do aprendizado. Vamos trabalhar a sua confiança passo a passo.
-                    </div>
+
+            <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-orange-200 transition-all">
+                <button onclick="toggleFaq(this)" class="w-full px-6 py-5 flex justify-between items-center bg-white hover:bg-slate-50 text-left transition-colors font-bold text-primary">
+                    <span>Como funcionam as aulas?</span>
+                    <span class="text-secondary font-bold text-xl ml-4">↓</span>
+                </button>
+                <div class="faq-answer px-6 pb-5 bg-white text-gray-600 text-sm border-t border-slate-100 pt-0 hidden">
+                    <p class="pt-4">As aulas são 100% online e ao vivo, permitindo total flexibilidade para você estudar de onde quiser.</p>
                 </div>
             </div>
         </div>
+    </div>
+</section>
     </section>
 
     <section id="contato" class="py-16 bg-slate-50 border-t border-gray-100">
