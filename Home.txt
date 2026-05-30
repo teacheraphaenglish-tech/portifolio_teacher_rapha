@@ -1,0 +1,573 @@
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Mail, Phone, Instagram, Award, BookOpen, Users, Zap, Plane, CheckCircle, MessageCircle, ChevronDown } from "lucide-react";
+import { useState } from "react";
+
+/**
+ * Raphaela English Teacher - Portfólio
+ * Design: Modern Minimalist + Educational Warmth
+ * Colors: Navy Blue (#1a3a52), Coral (#f4a460), White, Grays
+ * Typography: Poppins (titles), Inter (body)
+ */
+
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Card className="border border-border hover:border-secondary transition-colors">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-6 py-4 flex items-center justify-between hover:bg-blue-50 transition-colors"
+      >
+        <h3 className="text-base font-semibold text-primary text-left">{question}</h3>
+        <ChevronDown
+          className={`w-5 h-5 text-secondary transition-transform duration-300 flex-shrink-0 ml-4 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {isOpen && (
+        <div className="px-6 pb-4 border-t border-border bg-blue-50/30">
+          <p className="text-sm text-muted-foreground leading-relaxed">{answer}</p>
+        </div>
+      )}
+    </Card>
+  );
+}
+
+export default function Home() {
+  const heroImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663673316395/HHEeJnVHFjwSQgH6SfaZLA/hero-english-remote-pt-title-ipDPqyBq4YNzXBVJ5Hje6a.webp";
+  const raphaelPhoto = "/manus-storage/raphaela-photo-no-bg-final_74704cc6.png";
+  const methodologyImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663673316395/HHEeJnVHFjwSQgH6SfaZLA/methodology-visual-pt-mPvULAc9UwMvjVPfQQx8Vb.webp";
+  const plansImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663673316395/HHEeJnVHFjwSQgH6SfaZLA/plans-illustration-VDbSEebihGqz9ULmgkXKrr.webp";
+  const logo = "/manus-storage/logocorreto_c16e56ae.png";
+
+  return (
+    <div className="min-h-screen bg-white relative">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
+        <div className="container max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="Teacher Rapha" className="w-12 h-12 rounded-full" />
+            <div className="text-xl font-bold text-primary">Teacher Rapha</div>
+          </div>
+          <div className="flex gap-8 items-center">
+            <a href="#sobre" className="text-foreground hover:text-primary transition-colors text-sm">Sobre</a>
+            <a href="#metodologia" className="text-foreground hover:text-primary transition-colors text-sm">Metodologia</a>
+            <a href="#planos" className="text-foreground hover:text-primary transition-colors text-sm">Planos</a>
+            <a href="#contato" className="text-foreground hover:text-primary transition-colors text-sm">Contato</a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="bg-gradient-to-b from-blue-50 to-white py-16 md:py-24">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h1 className="heading-1 text-primary">
+                Aprenda Inglês com Confiança
+              </h1>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Aulas personalizadas focadas em conversação, fluência e construção de confiança. Com 5 anos de experiência e certificações internacionais, eu ajudo você a alcançar seus objetivos em inglês.
+              </p>
+              <div className="flex gap-4 pt-4">
+                <Button className="bg-secondary hover:bg-secondary/90 text-white px-8 py-6 text-base">
+                  Começar Agora
+                </Button>
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary/5 px-8 py-6 text-base">
+                  Saiba Mais
+                </Button>
+              </div>
+            </div>
+            <div className="hidden md:block">
+              <img 
+                src={heroImage} 
+                alt="Aprendizado de Inglês" 
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="sobre" className="py-20 md:py-28 bg-white">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="hidden md:block order-2">
+              <img 
+                src={raphaelPhoto} 
+                alt="Raphaela - Professora de Inglês" 
+                className="w-full rounded-lg shadow-lg object-cover"
+              />
+            </div>
+            <div className="space-y-6 order-1 md:order-1">
+              <h2 className="heading-2 text-primary">Sobre Mim</h2>
+              
+              <div className="space-y-5">
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Sou Raphaela, professora de inglês com mais de 5 anos dedicados ao ensino transformador. Mas minha história não começou em uma sala de aula. Começou com medo.
+                </p>
+                
+                <div className="bg-blue-50 border-l-4 border-secondary p-4 rounded">
+                  <p className="text-base text-muted-foreground leading-relaxed italic">
+                    <span className="font-semibold text-primary">"Fui uma aluna muito tímida."</span> Eu sabia as respostas. Eu entendia tudo. Mas quando chegava a hora de falar, meu coração acelerava, minha voz tremia e o silêncio tomava conta. Passei anos vendo oportunidades passarem por medo de abrir a boca. Esse silêncio me ensinou mais do que qualquer livro poderia.
+                  </p>
+                </div>
+
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Hoje, como professora, transformei esse sofrimento em propósito. Cada aluno que chega até mim com medo é um reflexo do que eu fui. E é por isso que meu objetivo não é apenas ensinar inglês—é <span className="font-semibold">libertar pessoas do medo de falar</span>.
+                </p>
+
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Acredito que <span className="font-semibold">você merece se comunicar sem medo</span>. Desde a primeira aula, você vai falar. Pode ser uma palavra, uma frase, uma pergunta—mas você vai falar. Porque inglês não é um privilégio de poucos. Inglês é para todos. E deve ser algo <span className="font-semibold">fácil</span>, <span className="font-semibold">acessível</span> e até <span className="font-semibold">amado</span>.
+                </p>
+
+                <p className="text-base text-muted-foreground leading-relaxed font-semibold text-primary">
+                  Minha missão é simples: ajudar você a encontrar a voz que sempre teve, mas tinha medo de usar.
+                </p>
+              </div>
+
+              {/* Certifications and Formation */}
+              <div className="border-t border-border pt-8 mt-8">
+                <h3 className="heading-3 text-primary mb-4">Qualificações Profissionais</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-3">
+                    <p className="font-semibold text-sm text-primary text-secondary mb-3">🏆 Certificações Internacionais</p>
+                    <div className="flex gap-2 items-start">
+                      <Award className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">TESOL</p>
+                        <p className="text-xs text-muted-foreground">World TESOL Academy</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-2 items-start">
+                      <Award className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">TEFL</p>
+                        <p className="text-xs text-muted-foreground">World TESOL Academy</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-2 items-start">
+                      <Award className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">FCE - Cambridge</p>
+                        <p className="text-xs text-muted-foreground">Certificação de Fluência</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="font-semibold text-sm text-primary text-secondary mb-3">📚 Formação Acadêmica</p>
+                    <div className="flex gap-2 items-start">
+                      <BookOpen className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">Licenciatura em Letras - Inglês</p>
+                        <p className="text-xs text-muted-foreground">Universidade São Judas</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-2 items-start">
+                      <BookOpen className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">Gestão Empresarial</p>
+                        <p className="text-xs text-muted-foreground">FATEC</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Methodology Section */}
+      <section id="metodologia" className="py-20 md:py-28 bg-gradient-to-b from-blue-50 to-white">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="heading-2 text-primary mb-4">Minha Metodologia</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Aulas dinâmicas focadas no desenvolvimento real de habilidades comunicativas
+            </p>
+          </div>
+          <div className="mb-12">
+            <img 
+              src={methodologyImage} 
+              alt="Metodologia de Ensino" 
+              className="w-full rounded-lg shadow-lg"
+            />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <Card className="p-6 border-0 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-secondary/10 mb-4">
+                <Users className="w-6 h-6 text-secondary" />
+              </div>
+              <h3 className="heading-3 text-primary mb-2">Conversação</h3>
+              <p className="text-sm text-muted-foreground">Prática de conversas reais desde o primeiro dia</p>
+            </Card>
+            <Card className="p-6 border-0 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-secondary/10 mb-4">
+                <Zap className="w-6 h-6 text-secondary" />
+              </div>
+              <h3 className="heading-3 text-primary mb-2">Confiança</h3>
+              <p className="text-sm text-muted-foreground">Construção de segurança ao falar inglês</p>
+            </Card>
+            <Card className="p-6 border-0 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-secondary/10 mb-4">
+                <BookOpen className="w-6 h-6 text-secondary" />
+              </div>
+              <h3 className="heading-3 text-primary mb-2">Personalizado</h3>
+              <p className="text-sm text-muted-foreground">Aulas adaptadas aos seus objetivos</p>
+            </Card>
+            <Card className="p-6 border-0 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-secondary/10 mb-4">
+                <Award className="w-6 h-6 text-secondary" />
+              </div>
+              <h3 className="heading-3 text-primary mb-2">Certificações</h3>
+              <p className="text-sm text-muted-foreground">Preparação para exames internacionais</p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Trial Lesson Section */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="bg-gradient-to-r from-primary to-primary/80 rounded-lg p-8 md:p-12 text-white">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-6">
+                <h2 className="heading-2 text-white">Aula Experimental Gratuita</h2>
+                <p className="text-lg text-blue-100 leading-relaxed">
+                  Quer conhecer meu método e ver como funciona uma aula comigo? Oferço uma aula experimental completamente gratuita, sem compromisso!
+                </p>
+                <div className="space-y-3">
+                  <div className="flex gap-3 items-start">
+                    <CheckCircle className="w-6 h-6 text-secondary flex-shrink-0 mt-0.5" />
+                    <p className="text-blue-100">Avaliação do seu nível de inglês</p>
+                  </div>
+                  <div className="flex gap-3 items-start">
+                    <CheckCircle className="w-6 h-6 text-secondary flex-shrink-0 mt-0.5" />
+                    <p className="text-blue-100">Conhecer minha metodologia na prática</p>
+                  </div>
+                  <div className="flex gap-3 items-start">
+                    <CheckCircle className="w-6 h-6 text-secondary flex-shrink-0 mt-0.5" />
+                    <p className="text-blue-100">Definir seus objetivos e criar um plano personalizado</p>
+                  </div>
+                  <div className="flex gap-3 items-start">
+                    <CheckCircle className="w-6 h-6 text-secondary flex-shrink-0 mt-0.5" />
+                    <p className="text-blue-100">Duração: 30 minutos</p>
+                  </div>
+                </div>
+                <Button className="bg-secondary hover:bg-secondary/90 text-primary px-8 py-6 text-base font-semibold">
+                  Agendar Aula Experimental
+                </Button>
+              </div>
+              <div className="hidden md:block">
+                <div className="bg-white/10 rounded-lg p-8 backdrop-blur-sm">
+                  <p className="text-blue-100 text-center text-lg font-semibold mb-4">
+                    "Não tenho medo de começar do zero. Estou aqui para ajudar você em cada passo!"
+                  </p>
+                  <p className="text-blue-100 text-center">— Raphaela</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Plans Section */}
+      <section id="planos" className="py-20 md:py-28 bg-gradient-to-b from-blue-50 to-white">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="heading-2 text-primary mb-4">Planos de Aula</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Escolha o plano que melhor se adequa ao seu ritmo e objetivos
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {/* Regular Plan */}
+            <Card className="p-6 border-2 border-border hover:border-secondary transition-colors">
+              <div className="text-center mb-6">
+                <div className="text-3xl font-bold text-primary mb-2">Regular</div>
+                <p className="text-sm text-muted-foreground">1x por semana</p>
+              </div>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-secondary">R$ 280</div>
+                  <p className="text-xs text-muted-foreground">/mês (4 aulas)</p>
+                </div>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>4 aulas por mês</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>1 hora cada aula</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>Material digital incluso</span>
+                  </li>
+                </ul>
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white text-sm mt-4 py-4">
+                  Escolher
+                </Button>
+              </div>
+            </Card>
+
+            {/* Intensive Plan */}
+            <Card className="p-6 border-2 border-secondary shadow-lg">
+              <div className="text-center mb-6">
+                <div className="inline-block bg-secondary text-white px-2 py-1 rounded-full text-xs font-bold mb-3">
+                  MAIS POPULAR
+                </div>
+                <div className="text-3xl font-bold text-primary mb-2">Intensivo</div>
+                <p className="text-sm text-muted-foreground">2x por semana</p>
+              </div>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-secondary">R$ 520</div>
+                  <p className="text-xs text-muted-foreground">/mês (8 aulas)</p>
+                </div>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>8 aulas por mês</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>1 hora cada aula</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>Material digital incluso</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>Progresso mais rápido</span>
+                  </li>
+                </ul>
+                <Button className="w-full bg-secondary hover:bg-secondary/90 text-white text-sm mt-4 py-4">
+                  Escolher
+                </Button>
+              </div>
+            </Card>
+
+            {/* Travel Intensive Plan */}
+            <Card className="p-6 border-2 border-secondary shadow-lg lg:col-span-1">
+              <div className="text-center mb-6">
+                <div className="inline-block bg-secondary text-white px-2 py-1 rounded-full text-xs font-bold mb-3">
+                  NOVO
+                </div>
+                <div className="text-3xl font-bold text-primary mb-2 flex items-center justify-center gap-2">
+                  <Plane className="w-6 h-6" />
+                  Viagem
+                </div>
+                <p className="text-sm text-muted-foreground">3 meses intensivo</p>
+              </div>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-secondary">R$ 1.300</div>
+                  <p className="text-xs text-muted-foreground">3 meses completos</p>
+                </div>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>2 aulas por semana</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>Inglês para viagens</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>Conversação prática</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>Material completo</span>
+                  </li>
+                </ul>
+                <Button className="w-full bg-secondary hover:bg-secondary/90 text-white text-sm mt-4 py-4">
+                  Escolher
+                </Button>
+              </div>
+            </Card>
+
+            {/* Custom Plan */}
+            <Card className="p-6 border-2 border-border hover:border-secondary transition-colors">
+              <div className="text-center mb-6">
+                <div className="text-3xl font-bold text-primary mb-2">Personalizado</div>
+                <p className="text-sm text-muted-foreground">Sua necessidade</p>
+              </div>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-secondary">A combinar</div>
+                  <p className="text-xs text-muted-foreground">Consulte valores</p>
+                </div>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>Aulas em dupla</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>Grupos maiores</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>Aulas avulsas</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary">✓</span>
+                    <span>Horários flexíveis</span>
+                  </li>
+                </ul>
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/5 text-sm mt-4 py-4">
+                  Orçamento
+                </Button>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="heading-2 text-primary mb-4">Perguntas Frequentes</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Respostas para as duvidas mais comuns dos alunos
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto space-y-4">
+            <FAQItem
+              question="Posso começar do zero? Nunca estudei inglês."
+              answer="Absolutamente! Comigo, não existe muito atrasado ou muito iniciante. Minha metodologia é especialmente desenhada para quem está começando. Desde a primeira aula, você vai falar em inglês. Pode ser uma palavra, uma frase simples, mas você vai falar. Porque acredito que inglês é para todos, e deve ser fácil e acessível."
+            />
+            <FAQItem
+              question="Como são as aulas? São 100% online?"
+              answer="Sim, as aulas são 100% online via Zoom ou Google Meet. Você pode fazer de qualquer lugar, no conforto da sua casa ou até de viagem! As aulas são dinâmicas, focadas em conversação real e prática. Você não vai ficar apenas ouvindo - você vai falar desde o primeiro dia. Cada aula é personalizada de acordo com seus objetivos."
+            />
+            <FAQItem
+              question="Qual é o melhor horário para agendar as aulas?"
+              answer="Eu me adapto aos seus horários! Ofereço flexibilidade total para que você escolha os dias e horários que melhor se encaixam na sua rotina. Quer aulas à noite? De manhã cedo? Nos fins de semana? Sem problema! Basta entrar em contato pelo WhatsApp e combinamos o melhor para você."
+            />
+            <FAQItem
+              question="Quanto tempo leva para eu começar a falar com confiança?"
+              answer="Isso varia de pessoa para pessoa, mas a maioria dos meus alunos percebe melhora significativa em 2-3 meses de aulas regulares. O importante é que desde a primeira aula você já está praticando conversação. A confiança vem naturalmente quando você se sente seguro para tentar, errar e tentar novamente - sem medo. Essa é minha missão."
+            />
+            <FAQItem
+              question="E se eu tiver muito medo de falar? Tenho vergonha."
+              answer="Eu entendo perfeitamente esse medo. Fui uma menina muito tímida também! Mas aqui é um espaço seguro, sem julgamentos. Você não vai ser criticado por erros - errar é parte do aprendizado. Meu objetivo é exatamente libertar você desse medo. Com paciência, prática e um ambiente acolhedor, você vai descobrir que consegue falar mais do que imagina."
+            />
+            <FAQItem
+              question="Vocês oferecem aulas em grupo ou dupla?"
+              answer="Sim! Ofereço aulas personalizadas individuais, aulas em dupla e também em grupos pequenos. Cada formato tem suas vantagens. As aulas em grupo são ótimas para praticar conversação com outras pessoas. Se você tem um amigo ou colega interessado, posso fazer uma proposta especial. Entre em contato para mais detalhes!"
+            />
+            <FAQItem
+              question="Como funciona a aula experimental gratuita?"
+              answer="A aula experimental é completamente gratuita e sem compromisso! Dura 30 minutos e é o momento perfeito para nos conhecermos. Vou avaliar seu nível de inglês, entender seus objetivos, mostrar como funciona minha metodologia na prática e criar um plano personalizado para você. Não é uma aula de venda - é uma aula real onde você já vai começar a aprender!"
+            />
+            <FAQItem
+              question="Qual é a diferença entre os planos Regular, Intensivo e Viagem?"
+              answer="O plano Regular (1x por semana) é ideal para quem quer aprender no seu ritmo. O Intensivo (2x por semana) acelera o aprendizado e é perfeito para quem quer resultados mais rápidos. O plano Viagem (3 meses) é especial para quem vai viajar e quer aprender inglês prático para se comunicar em outro país. Todos incluem material digital e suporte personalizado."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contato" className="py-20 md:py-28 bg-primary text-white">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="heading-2 text-white mb-4">Entre em Contato</h2>
+            <p className="text-lg text-blue-100">
+              Pronto para começar sua jornada em inglês?
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center">
+              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-secondary/20 mx-auto mb-4">
+                <Phone className="w-6 h-6 text-secondary" />
+              </div>
+              <p className="text-sm text-blue-100 mb-2">Telefone/WhatsApp</p>
+              <a href="tel:+5513981142616" className="text-white font-semibold hover:text-secondary transition-colors">
+                (13) 98114-2616
+              </a>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-secondary/20 mx-auto mb-4">
+                <Mail className="w-6 h-6 text-secondary" />
+              </div>
+              <p className="text-sm text-blue-100 mb-2">E-mail</p>
+              <a href="mailto:teacherapha.english@gmail.com" className="text-white font-semibold hover:text-secondary transition-colors break-all">
+                teacherapha.english@gmail.com
+              </a>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-secondary/20 mx-auto mb-4">
+                <Instagram className="w-6 h-6 text-secondary" />
+              </div>
+              <p className="text-sm text-blue-100 mb-2">Instagram</p>
+              <a href="https://www.instagram.com/_teacher_rapha/" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:text-secondary transition-colors">
+                @_teacher_rapha
+              </a>
+            </div>
+          </div>
+          <div className="bg-white/10 rounded-lg p-8 text-center">
+            <p className="text-blue-100 mb-6">
+              Envie uma mensagem no WhatsApp ou Instagram para agendar sua aula experimental gratuita!
+            </p>
+            <Button className="bg-secondary hover:bg-secondary/90 text-primary px-8 py-6 text-base font-semibold">
+              Agendar Aula Experimental
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-primary/95 text-white py-8">
+        <div className="container max-w-6xl mx-auto px-4 text-center">
+          <p className="text-blue-100 text-sm">
+            © 2026 Teacher Raphaela. Todos os direitos reservados.
+          </p>
+          <p className="text-blue-100 text-xs mt-2">
+            Professora de Inglês Autônoma
+          </p>
+        </div>
+      </footer>
+
+      {/* WhatsApp Floating Button with Animation */}
+      <style>{`
+        @keyframes pulse-whatsapp {
+          0%, 100% {
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4), 0 0 0 0 rgba(34, 197, 94, 0.7);
+          }
+          50% {
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4), 0 0 0 15px rgba(34, 197, 94, 0);
+          }
+        }
+        .whatsapp-btn {
+          animation: pulse-whatsapp 2.5s infinite;
+        }
+        .whatsapp-btn:hover {
+          animation: none;
+        }
+      `}</style>
+      <a
+        href="https://wa.me/5513981142616?text=Olá%20Raphaela!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20gratuita."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-btn fixed bottom-6 right-6 z-40 flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-125 hover:shadow-2xl active:scale-95"
+        title="Enviar mensagem no WhatsApp"
+      >
+        <MessageCircle className="w-6 h-6 transition-transform duration-300" />
+      </a>
+    </div>
+  );
+}
